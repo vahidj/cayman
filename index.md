@@ -115,7 +115,7 @@ Since your joint initially can only happen on equality find a column to use in y
 
 Honestly I don't know. Run some tests and figure it out under your settings. I guess it depends on Scala's default behavior in handling nulls.
 
-## [](#header-2)I want to write my pipe's content to multiple files by partitioning my data based on some criterion. Is it to much to ask for?
+## [](#header-2)I want to write my pipe's content to multiple files by partitioning my data based on some criterion. Is it too much to ask for?
 
 No it's not. Take a look at this:
 

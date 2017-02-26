@@ -135,4 +135,4 @@ pipe.write(DelimitedPartitionedTsv)
 
 ## [](#header-2)I have a partitioned hive table and the partition field is not included in the hdfs file, how should I read the data?
 
-I believe the support for reading partitioned files is added to the latest version of scalding (I was not able to get it working though). If you have an older version of scalding and you want scalding to pick up the partition field from the folder structure and add it as a field to your pipe, I guess your best bet is to use a var pipe, read from individual files and keep unioning your var pipe with itself while your reading the data. Of course this is not the most efficient way but it'll do the job.
+I believe the support for reading partitioned files is added to the latest version of scalding (I was not able to get it working though). If you have an older version of scalding and you want scalding to pick up the partition field from the folder structure and add it as a field to your pipe, I guess your best bet is to use a var pipe, read from individual files and keep unioning your var pipe with itself. Of course this is not the most efficient way but it'll do the job.

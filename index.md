@@ -104,7 +104,7 @@ The final schema will be something like this:
 
 field1, field2, you_can_name_the_aggregation_differently, another_field
 
-And now that you know how to do it no reason to be embarrassed.
+And now that you know how to do it no reason to be embarrassed anymore.
 
 ## [](#header-2)How do I implement inequality join?
 

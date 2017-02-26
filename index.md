@@ -61,16 +61,16 @@ It's basically a way to transform rows to columns in your pipe, and yes, it is v
 
 Imagine your data is organized like this:
 
-name, fruit_name, count
-Tom, apple, 10
-Tom, orange, 5
-Joe, pear, 15
+> name, fruit_name, count
+> Tom, apple, 10
+> Tom, orange, 5
+> Joe, pear, 15
 
 and you want to transform it to:
 
-name, apple_count, orange_count, pear_count
-Tom, 10, 5, 0
-Joe, 0, 0, 15
+> name, apple_count, orange_count, pear_count
+> Tom, 10, 5, 0
+> Joe, 0, 0, 15
 
 ```scala
 //0 is the default value here, meaning that if there is no matching row, a 0 will be put

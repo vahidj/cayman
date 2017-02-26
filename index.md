@@ -14,7 +14,7 @@ This post goes over some challenges you may face as a scalding developer beyond 
 
 # [](#header-1)What is your preferred way of coding in scalding?
 
-Just my preference. I prefer to build my code using [Apache Maven](https://maven.apache.org/). In terms of the IDE, if I'm working on a project with more than one class, I use [ScalaIDE](http://scala-ide.org/) otherwise I simply use [VIM](http://www.vim.org/). I don't use the IDE for building the code and I only use it for autocompletion  and project browsing. You may need to install some plugins for the autocompletion though.
+Just my preference. I prefer to build my code using [Apache Maven](https://maven.apache.org/). In terms of the IDE, if I'm working on a project with more than one class, I use [ScalaIDE](http://scala-ide.org/) otherwise I simply use [VIM](http://www.vim.org/). I don't use the IDE for building the code and I only use it for autocompletion  and project browsing. You may need to install some plugins for autocompletion though.
 
 When I code I usually have two pages opened in my browser and 80% of the times they can provide me with what I'm looking for:
 

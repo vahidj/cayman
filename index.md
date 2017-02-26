@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# [](#header-1)Scalding 102
+Scalding 102
 
 # [](#header-1)Should I read this?
 
@@ -10,11 +10,11 @@ If you don't know what scalding is and how to code a hello world project in it, 
 
 # [](#header-1)What is covered?
 
-This post goes over some challenges you may face as a scalding developer beyond the elementary and generic documentation you may find online. It covers neither elementary nor advanced material, just some practical tips to help you get through your fist couple of weeks of coding in scalding and save you some time.
+This post goes over some challenges you may face as a scalding developer beyond the elementary and generic documentation you may find online. It covers neither elementary nor advanced material, just some practical tips to help you get through your first couple of weeks of coding in scalding and save you some time.
 
 # [](#header-1)What is your preferred way of coding in scalding?
 
-Just my preference. I prefer to build my code using [Apache Maven](https://maven.apache.org/). In terms of the IDE, if I'm working on a project with more than one class, I use [ScalaIDE](http://scala-ide.org/) otherwise I simply use VIM. I don't use the IDE for building the code and I only use it for autocompletion  and project browsing. You may need to install some plugins for the autocompletion though.
+Just my preference. I prefer to build my code using [Apache Maven](https://maven.apache.org/). In terms of the IDE, if I'm working on a project with more than one class, I use [ScalaIDE](http://scala-ide.org/) otherwise I simply use [VIM](http://www.vim.org/). I don't use the IDE for building the code and I only use it for autocompletion  and project browsing. You may need to install some plugins for the autocompletion though.
 
 When I code I usually have two pages opened in my browser and 80% of the times they can provide me with what I'm looking for:
 
@@ -29,8 +29,9 @@ When I code I usually have two pages opened in my browser and 80% of the times t
 Absolutely not. It's very straightforward though:
 
 ```scala
-//assume you have two fields, one String and one Integer and you want to keep the
-//records whose (lower cased) field1 is equal to "something" and field2 module 10 is equal to 9
+//assume you have two fields, one String and one Integer and you want to keep
+//the records whose (lower cased) field1 is equal to "something" and field2
+//module 10  is equal to 9
 pipe.filter('field1, 'field2){r: (String, Int) => {
   val (field1, field2) = r
   (field1.toLowerCase().equals("something") && field2 % 10 == 9 )}
@@ -45,8 +46,10 @@ You're gonna need to import cascading.tuple.Fields and then use a piece of code 
 
 ```scala
 //code is not compileable. "..." means a lot of fields in between.
-pipe.filter(new Fields("field1", "field1", ..., "field100")){r: Tuple => {
-  (r.getString(0).toLowerCase().equals("something") && r.getInteger(1) % 10 == 9 && a lot of other conditions)}
+pipe.filter(new Fields("field1", "field1", ..., "field100"))
+{r: Tuple => {
+  (r.getString(0).toLowerCase().equals("something") && r.getInteger(1) % 10 == 9
+  && a lot of other conditions)}
 }
 ```
 
@@ -76,9 +79,9 @@ pipe.groupBy('name)
 {_.pivot(('fruit_name,'count) -> ('apple_count, 'orange_count, 'pear_count), 0)}
 ```
 
-## [](#header-2)Okay, what if fruit names contain space or something?
+## [](#header-2)Okay, what if the field name contains space or something?
 
-map is your friend. You can even implement pivot with map if you feel like doing it.
+map is your friend (not sure what you mean by "something" though). You can even implement pivot with map if you feel like doing it.
 There could be other answers to this question. I believe you can also use Fields for this purpose (e.g. new Fields("name with space")) but here is my answer using map:
 
 ```scala
@@ -93,7 +96,8 @@ Use "dot".
 
 ```scala
 pipe.groupBy(('field1, 'field2))
-{_.sum[Double]('some_numeric_field -> 'you_can_name_the_aggregation_differently).average('another_field -> 'another_field)}
+{_.sum[Double]('some_numeric_field -> 'you_can_name_the_aggregation_differently)
+.average('another_field -> 'another_field)}
 ```
 
 The final schema will be something like this:
@@ -116,7 +120,9 @@ Honestly I don't know. Run some tests and figure it out under your settings. I g
 No it's not. Take a look at this:
 
 ```scala
-//your data will be partitioned based on field_to_be_used_for_partitioning and for every value of that field a separate file will be created in /path/to/your/folder.
+//your data will be partitioned based on field_to_be_used_for_partitioning and
+//for every value of that field a separate file will be created
+//in /path/to/your/folder.
 import com.twitter.scalding.{ PartitionedTsv => StandardPartitionedTsv, _ }
 val DelimitedPartitionedTsv = StandardPartitionedTsv("/path/to/my/folder", "/", 'field_to_be_used_for_partitioning)
 pipe.write(DelimitedPartitionedTsv)

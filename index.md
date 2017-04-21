@@ -1,7 +1,3 @@
----
-layout: default
----
-
 Answer to a few questions on creating pipelines with Scalding: [Scalding 102](https://vahidj.github.io/myblog/scalding)
 
 
